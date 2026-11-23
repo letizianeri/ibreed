@@ -1,5 +1,6 @@
 (function () {
   var hero = document.getElementById('hero'),
+      heroImg = document.getElementById('hero-img'),
       br = document.getElementById('br'),
       serifEl = br.querySelector('.serif');
 
@@ -32,6 +33,14 @@
     br.style.letterSpacing = ls;
     br.style.paddingLeft = ls;
     serifEl.style.letterSpacing = ls;
+
+    // Sfocatura e leggero zoom dell'immagine sincronizzati con il logo
+    if (heroImg) {
+      var imgBlur = (28 * (1 - k)).toFixed(1);
+      var imgScale = (1 + 0.06 * (1 - k)).toFixed(4);
+      heroImg.style.filter = 'blur(' + imgBlur + 'px)';
+      heroImg.style.transform = 'scale(' + imgScale + ')';
+    }
   }
 
   function tick() {
@@ -47,7 +56,7 @@
   brand();
   tick();
 
-// Comparsa in opacità e blur delle sezioni allo scroll
+  // Comparsa in opacità e blur delle sezioni allo scroll
   var sections = document.querySelectorAll('section.s');
 
   if (reduce || !('IntersectionObserver' in window)) {

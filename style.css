@@ -349,20 +349,6 @@ footer .logo {
   display: block;
 }
 
-/*
-.shade {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 16, 20, .16) 0,
-    transparent 22%,
-    transparent 56%,
-    rgba(14, 16, 20, .72) 100%
-  );
-} */
-
 
 /* ========================================
    12. LOGO ANIMATO NELLA HERO
@@ -372,7 +358,7 @@ footer .logo {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: calc(6svh + env(safe-area-inset-bottom, 0px));
+  bottom: env(safe-area-inset-bottom, 0px);
   text-align: center;
   font: 400 clamp(56px, 12.8vw, 183px)/1 var(--sans);
   color: var(--heroink);
@@ -389,6 +375,18 @@ footer .logo {
   letter-spacing: 0;
   vertical-align: top;
   margin-left: .1em;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: blur(28px);
+  transform: scale(1.06);
+  will-change: filter, transform;
 }
 
 /* ========================================
