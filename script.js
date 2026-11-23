@@ -46,4 +46,29 @@
 
   brand();
   tick();
+
+// Comparsa in opacità e blur delle sezioni allo scroll
+  var sections = document.querySelectorAll('section.s');
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    sections.forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  } else {
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target); // L'animazione avviene una volta sola
+        }
+      });
+    }, {
+      threshold: 0.15, // Si attiva quando almeno il 15% della sezione è visibile
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    sections.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
 })();

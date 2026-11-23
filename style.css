@@ -226,10 +226,6 @@ section.s {
    08. COLONNE
 ======================================== */
 
-/* ========================================
-   08. COLONNE
-======================================== */
-
 .cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -394,6 +390,26 @@ footer .logo {
   margin-left: .1em;
 }
 
+/* ========================================
+   ANIMAZIONE COMPARSA SEZIONI ALLO SCROLL
+======================================== */
+
+section.s {
+  opacity: 0;
+  filter: blur(24px);
+  transform: translateY(16px);
+  transition:
+    opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+section.s.is-visible {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
 
 /* ========================================
    13. RESPONSIVE
