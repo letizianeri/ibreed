@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>IBREED - The ultimate species</title>
+   
+  <link rel="stylesheet" href="https://use.typekit.net/xun5jck.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <section id="hero">
+    <div class="stick"> <!-- qua ci dovrebbe essere il morphing in teoria -->
+      <canvas id="cv" role="img"></canvas>
+      <div class="shade"></div>
+      <a class="brand" id="br" href="#hero"><span class="serif">IBREED<sup>®</sup></span></a>
+    </div>
+  </section>
+
+  <section class="s" id="about">
+    <p class="eyebrow">About</p>
+    <p class="big">
+         <span class="serif">IBREED<sup>®</sup></span> is a health institute based in Lombardy, Italy. <br>
+         We stopped asking how to keep defending the human body, and started asking how long it can stay as it is.</p>
+    <p class="big" style="margin-top:26px">
+        For ten thousand years, humans and pigs have lived side by side. <br>
+        <span class="serif">IBREED<sup>®</sup></span> is the next procedure: cell by cell, we make the two compatible.
+    </p>
+    <p class="big" style="margin-top:26px">
+        There is nothing to be afraid of. <br>
+        We take care of our own.</p>
+  </section>
+  <hr class="rule">
+
+  <section class="s" id="programme">
+    <p class="eyebrow">Mission</p>
+    <p class="big"><span class="serif">IBREED<sup>®</sup></span> protects every citizen at every step of becoming more.</p>
+    <div class="cols">
+      <div><!--em>Phase one</em!--><h3>Test</h3><p>We measure how close you already are.</p></div>
+      <div><!--em>Phase two</em!--><h3>Procedure</h3><p>Cell by cell, we make the two compatible.</p></div>
+      <div><!--em>Phase three</em!--><h3>Care</h3><p>We stay.</p></div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <section class="s" id="test">
+    <p class="eyebrow">The test</p>
+    <p class="big"><span class="serif">OINK<sup>®</sup></span> is the first step. It takes less than three minutes and requires no preparation. Participation is free and open to all citizens. All profiles are eligible.</p>
+    <!--<div class="facts">
+      <div><strong>3 min</strong><span>Clinical test</span></div>
+      <div><strong>Free</strong><span>No risk</span></div>
+      <div><strong>Donor included</strong><span>Assigned at the test</span></div>
+    </div>!-->
+    <div class="cols">
+      <div><span class="serif">I.</span><h3>Position</h3><p>Get on all fours. Hands on the plates, chin on the support.</p></div>
+      <div><span class="serif">II.</span><h3>Breathe</h3><p>Follow the rhythm. The sensor does the rest.</p></div>
+      <div><span class="serif">III.</span><h3>Listen</h3><p>Another breath will join yours. There is nothing else to do.</p></div>
+    </div>
+    <p style="margin-top:56px"><a class="btn" href="#profile">Book the test</a></p>
+  </section>
+  <hr class="rule">
+
+  <section class="s" id="profile">
+    <p class="eyebrow">Your profile</p>
+    <p class="big">Already tested? Enter the code printed on your slip.</p>
+    <form id="f" autocomplete="off">
+      <input id="code" aria-label="Profile code" placeholder="IT-03417" maxlength="9">
+      <button class="btn" type="submit">Open profile</button>
+    </form>
+    <div id="res" aria-live="polite"></div>
+  </section>
+
+  <footer>
+    <span class="logo"><span class="serif">IBREED<sup>®</sup></span></span>
+    
+    Politecnico di Milano, Final Synthesis Design Studio, <a href="https://www.instagram.com/antidisciplinarylab" target="_blank">@antidisciplinarylab</a></br> 
+    All images and profiles are fictional.
+  </footer>
+
+  <!-- Collegamento al file JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
