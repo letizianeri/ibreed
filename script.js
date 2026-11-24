@@ -12,7 +12,7 @@
   serifEl.style.fontFamily = '"Trust 3A", trust-3a, sans-serif';
   serifEl.style.fontWeight = '500';
   serifEl.style.display = 'inline-block';
-  serifEl.style.transformOrigin = 'center baseline';
+  serifEl.style.transformOrigin = 'center center';
   serifEl.style.transform = 'scaleY(0.75)';
 
   // Imposta Trust 1A Regular e lo stesso scaling verticale al 75% sul sottotitolo
@@ -20,7 +20,7 @@
     subEl.style.fontFamily = '"Trust 1A", trust-1a, sans-serif';
     subEl.style.fontWeight = '400';
     subEl.style.display = 'inline-block';
-    subEl.style.transformOrigin = 'center baseline';
+    subEl.style.transformOrigin = 'center center';
     subEl.style.transform = 'scaleY(0.75)';
   }
 
@@ -35,17 +35,23 @@
   function brand() {
     var o = Math.max(0, Math.min(1, (cur - 0.04) / 0.5)),
         k = Math.min(1, cur / 0.85),
-        // Parte largo (0.716em) e si chiude esattamente sul tracking 76 (0.076em)
-        ls = (0.716 - 0.64 * k * (2 - k)).toFixed(3) + 'em';
+        ls = (0.716 - 0.64 * k * (2 - k)).toFixed(3) + 'em',
+        textBlur = 'blur(' + (12 * (1 - o)).toFixed(1) + 'px)';
 
     br.style.opacity = o;
-    br.style.filter = 'blur(' + (12 * (1 - o)).toFixed(1) + 'px)';
     br.style.letterSpacing = ls;
-    br.style.paddingLeft = ls;
     serifEl.style.letterSpacing = ls;
+    serifEl.style.paddingLeft = ls;
+    serifEl.style.filter = textBlur;
     if (subEl) {
       subEl.style.letterSpacing = ls;
+      subEl.style.paddingLeft = ls;
+      subEl.style.filter = textBlur;
     }
+
+    // Sfocatura responsive della fascia dietro i testi sincronizzata allo scroll
+    var baseH = Math.max(56, Math.min(183, window.innerWidth * 0.128));
+    br.style.setProperty('--bd-blur', (baseH * 0.16 * k).toFixed(1) + 'px');
 
     // Sfocatura e leggero zoom dell'immagine sincronizzati con il logo
     if (heroImg) {

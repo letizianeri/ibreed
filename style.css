@@ -355,33 +355,94 @@ footer .logo {
 ======================================== */
 
 .brand {
+  /* 1. Altezza totale originale da preservare */
+  --base-h: clamp(56px, 12.8vw, 183px);
+  
+  /* 2. Modifica SOLO questo valore per cambiare il gap (es. 0.2 = 20% dell'altezza totale) */
+  --gap-ratio: 0;
+
+  /* 3. Variabile controllata da JS per la sfocatura progressiva */
+  --bd-blur: 0px;
+
+  /* Calcoli automatici di gap e dimensione testo */
+  gap: calc(var(--base-h) * var(--gap-ratio));
+  font-size: calc(var(--base-h) * (1 - var(--gap-ratio)) / 1.6);
+
   position: absolute;
   left: 0;
   right: 0;
-  bottom: env(safe-area-inset-bottom, 0px);
+  bottom: 0;
+
+  /* Padding simmetrico per mantenere i testi centrati verticalmente nella fascia */
+  padding-top: calc(var(--base-h) * 0.25);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + var(--base-h) * 0.15);
+
+  /* Centratura orizzontale e verticale */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.3375em; /* Equivalente al 20% dell'altezza totale del blocco */
   text-align: center;
-  font: 400 clamp(33px, 7.58vw, 108px)/1 var(--sans);
+
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1;
   color: var(--heroink);
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.076em;
-  padding-left: 0.076em;
   opacity: 0;
+  isolation: isolate;
+}
+
+/* Fascia orizzontale di sfocatura responsive sull'asse Z 
+.brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  -webkit-backdrop-filter: blur(var(--bd-blur));
+  backdrop-filter: blur(var(--bd-blur));
+
+  /* Leggero velo per garantire contrasto del testo bianco sullo sfondo chiaro 
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.16) 0%,
+    rgba(0, 0, 0, 0.06) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  /* Sfumatura morbida verso l'alto 
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  ); 
+} */
+
+.brand .serif,
+.brand .sub {
+  display: inline-block;
+  padding-left: inherit; /* Compensa esattamente il tracking di ciascuna riga */
   filter: blur(12px);
 }
 
 .brand .sub {
-  display: inline-block;
   font-family: var(--sans); /* Trust 1A */
   font-weight: 400;         /* Regular */
-  font-size: 0.35em;        /* 35% della prima scritta */
+  font-size: 0.5em;        /* 35% della prima scritta */
   line-height: 1;
   letter-spacing: inherit;
-  transform-origin: center baseline;
+  transform-origin: center center;
   transform: scaleY(0.75);
 }
 
