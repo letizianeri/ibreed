@@ -359,8 +359,12 @@ footer .logo {
   left: 0;
   right: 0;
   bottom: env(safe-area-inset-bottom, 0px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3375em; /* Equivalente al 20% dell'altezza totale del blocco */
   text-align: center;
-  font: 400 clamp(56px, 12.8vw, 183px)/1 var(--sans);
+  font: 400 clamp(33px, 7.58vw, 108px)/1 var(--sans);
   color: var(--heroink);
   text-transform: uppercase;
   text-decoration: none;
@@ -368,6 +372,17 @@ footer .logo {
   padding-left: 0.076em;
   opacity: 0;
   filter: blur(12px);
+}
+
+.brand .sub {
+  display: inline-block;
+  font-family: var(--sans); /* Trust 1A */
+  font-weight: 400;         /* Regular */
+  font-size: 0.35em;        /* 35% della prima scritta */
+  line-height: 1;
+  letter-spacing: inherit;
+  transform-origin: center baseline;
+  transform: scaleY(0.75);
 }
 
 .brand sup {

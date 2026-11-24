@@ -2,7 +2,8 @@
   var hero = document.getElementById('hero'),
       heroImg = document.getElementById('hero-img'),
       br = document.getElementById('br'),
-      serifEl = br.querySelector('.serif');
+      serifEl = br.querySelector('.serif'),
+      subEl = br.querySelector('.sub');
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var target = 0, cur = 0;
@@ -13,6 +14,15 @@
   serifEl.style.display = 'inline-block';
   serifEl.style.transformOrigin = 'center baseline';
   serifEl.style.transform = 'scaleY(0.75)';
+
+  // Imposta Trust 1A Regular e lo stesso scaling verticale al 75% sul sottotitolo
+  if (subEl) {
+    subEl.style.fontFamily = '"Trust 1A", trust-1a, sans-serif';
+    subEl.style.fontWeight = '400';
+    subEl.style.display = 'inline-block';
+    subEl.style.transformOrigin = 'center baseline';
+    subEl.style.transform = 'scaleY(0.75)';
+  }
 
   function prog() {
     var r = hero.getBoundingClientRect(),
@@ -33,6 +43,9 @@
     br.style.letterSpacing = ls;
     br.style.paddingLeft = ls;
     serifEl.style.letterSpacing = ls;
+    if (subEl) {
+      subEl.style.letterSpacing = ls;
+    }
 
     // Sfocatura e leggero zoom dell'immagine sincronizzati con il logo
     if (heroImg) {
