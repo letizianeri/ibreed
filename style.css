@@ -64,29 +64,13 @@ sup,
   height: 260vh;
 }
 
-
+/*
 .stick {
   position: sticky;
   top: 0;
-  width: 100%;
-  height: 100vh;  /* Fallback per browser vecchi */
-  height: 100svh; /* Altezza minima viewport */
-  height: 100dvh; /* Altezza dinamica reale su mobile (esclude barre browser) */
+  height: 100vh;
+  height: 100svh;
   overflow: hidden;
-}
-
-.hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 100dvh;
-  object-fit: cover;
-  object-position: center center; /* Centra il soggetto dell'immagine */
-  display: block;
-  filter: blur(28px);
-  transform: scale(1.06);
-  will-change: filter, transform;
 }
 
 #cv {
@@ -346,7 +330,6 @@ footer .logo {
 
 #hero {
   position: relative;
-  background: var(--hero);
 }
 
 .stick {
